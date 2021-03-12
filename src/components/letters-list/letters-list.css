@@ -1,0 +1,12 @@
+.letters-list {
+  background-color: peachpuff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.letters-list-item {
+  padding: .25rem .75rem;
+  list-style: none;
+}
