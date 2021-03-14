@@ -1,9 +1,27 @@
 import React from 'react';
-
+//import Counter from '../counter';
 import './item.css';
 
-const Item = ({ text }) => {
-  return <span className="item">{ text }</span>
+const Item = ({ text, items }) => {
+
+/* функция подсчёта одинаковых значений
+
+ const result = [...items.reduce( (mp, o) => {
+
+   if (!mp.has(o.text)) mp.set(o.text, {...o, count: 0 });
+   mp.get(o.text).count++;
+   return mp;
+ }, new Map()).values()];
+
+ console.log(result);
+
+*/
+  return (
+  <div className="d-flex">
+    <span className="item">{ text }</span>
+    <span></span>
+  </div>
+  );
 };
 
 const Item1 = ({ text1 }) => {

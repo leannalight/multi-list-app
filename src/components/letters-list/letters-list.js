@@ -13,7 +13,7 @@ const LettersList = ({ items }) => {
 
     return (
       <li key={id} className="letters-list-item">
-        <Item {...itemProps}/>
+        <Item {...itemProps} />
       </li>
     )
   });

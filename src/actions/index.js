@@ -19,3 +19,5 @@ export const addLetNum = (text2) => ({
   id: itemId++,
   text2
 });
+
+export const inc = () => ({type: 'INC'});

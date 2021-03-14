@@ -17,10 +17,10 @@ const AddItem = ({ dispatch }) => {
       return
     }
 
-    if (/(([a-zA-Z]+\d+)|(\d+[a-zA-Z]+))/.test(input.value)) {
+    if (/(([a-zа-яё]+\d+)|(\d+[a-zа-яё]+))/.test(input.value)) {
       dispatch (addLetNum(input.value));
     }
-    if (/^[a-zA-Z]*$/.test(input.value)) {
+    if (/^[a-zа-яё]*$/.test(input.value)) {
         dispatch (addLet(input.value));
     }
     if (/^\d+$/.test(input.value)) {
