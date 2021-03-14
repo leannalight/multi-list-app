@@ -1,22 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Item from '../item';
+import { addLet } from '../../actions';
+import { Item } from '../item';
 
 import './letters-list.css';
 
-const LettersList = ({ items }) => (
- <div className="letters-list">
-    <h5>Letters</h5>
-    <ul className="letters-list-item list-group">
-      {items.map(item =>
-        <Item
-            key={item.id}
-            {...item} />
-      )}
-    </ul>
- </div>
-);
+const LettersList = ({ items }) => {
+
+  const elements = items.items.map((item) => {
+
+    const { id, ...itemProps } = item;
+
+    return (
+      <li key={id} className="letters-list-item">
+        <Item {...itemProps}/>
+      </li>
+    )
+  });
+
+  return (
+    <div className="letters-list">
+       <h5>Letters</h5>
+       <ul className="letters-list-item list-group">
+        {elements}
+       </ul>
+    </div>
+   );
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -24,4 +34,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(LettersList);
+export default connect(mapStateToProps, addLet)(LettersList);

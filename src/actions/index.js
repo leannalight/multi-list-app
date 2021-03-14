@@ -2,20 +2,20 @@
 
 let itemId = 0;
 
- export const addItem = text => ({
-    type: 'ADD_ITEM',
+ export const addLet = (text) => ({
+    type: 'ADD_LET',
     id: itemId++,
     text
- });
+  });
 
- export const addNum = text => ({
+ export const addNum = (text1) => ({
   type: 'ADD_NUM',
   id: itemId++,
-  text: 1
+  text1
 });
 
-export const addLetNum = text => ({
+export const addLetNum = (text2) => ({
   type: 'ADD_LN',
   id: itemId++,
-  text: 2
+  text2
 });

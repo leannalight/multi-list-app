@@ -1,3 +1,7 @@
-import Item from './item';
+import { Item, Item1, Item2 } from './item';
 
-export default Item;
+export {
+  Item,
+  Item1,
+  Item2
+};

@@ -2,10 +2,20 @@ import React from 'react';
 
 import './item.css';
 
-const Item = ({ text }) => (
-  <li className="item">
-    { text }
-  </li>
-);
+const Item = ({ text }) => {
+  return <span className="item">{ text }</span>
+};
 
-export default Item;
+const Item1 = ({ text1 }) => {
+  return <span className="item">{ text1 }</span>
+};
+
+const Item2 = ({ text2 }) => {
+  return <span className="item">{ text2 }</span>
+};
+
+export {
+  Item,
+  Item1,
+  Item2
+}
