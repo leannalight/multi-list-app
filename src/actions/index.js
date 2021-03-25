@@ -1,7 +1,6 @@
 // создаём Action Creators
 
 let itemId = 0;
-//let countWord = 0;
 
  export const addToLetters = (text, count) => {
     return {

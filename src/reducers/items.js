@@ -2,6 +2,38 @@ const initialState = {
   items: []
 };
 
+// функция обновления массива
+const updateItems = (items, item, idx) => {
+
+  if (idx === -1) {
+    return [
+      ...items,
+      item
+    ];
+  }
+
+  return [
+    ...items.slice(0, idx),
+    item,
+    ...items.slice(idx + 1)
+  ];
+};
+
+// функция обновления элемента списка
+const updateItem = (action, item = {}) => {
+
+  const {
+    id = action.id,
+    text = action.text,
+    count = 0 } = item;
+
+  return {
+    id,
+    text,
+    count: count + 1
+  }
+}
+
 // reducer
 const items = (state = initialState, action) => {
 
@@ -11,39 +43,11 @@ const items = (state = initialState, action) => {
     const itemIndex = state.items.findIndex(({ text }) => text === action.text);
     const item = state.items[itemIndex];
 
-    let newItem;
-
-    if (item) {
-      newItem = {
-        ...item,
-        count: item.count + 1
-      };
-    } else {
-      newItem = {
-        id: action.id,
-        text: action.text,
-        count: 1
-      };
+    const newItem = updateItem(action, item);
+    return {
+      ...state,
+      items: updateItems(state.items, newItem, itemIndex)
     };
-
-    if (itemIndex < 0) {
-      return {
-        ...state,
-        items: [
-          ...state.items,
-          newItem
-        ]
-      };
-    } else {
-      return {
-        ...state,
-        items: [
-          ...state.items.slice(0, itemIndex),
-          newItem,
-          ...state.items.slice(itemIndex + 1)
-        ]
-      };
-    }
 
     default:
       return state;
