@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNum } from '../../actions';
-import { Item1 } from '../item';
+import { addToNumbers } from '../../actions';
+import { ItemNumber } from '../item';
 
 import './numbers-list.css';
 
 
-const NumbersList = ({ itemsOne }) => {
+const NumbersList = ({ itemsNumbers }) => {
 
-  const elements = itemsOne.itemsOne.map((itemOne) => {
+  const elements = itemsNumbers.itemsNumbers.map((itemNumber) => {
 
-    const { id, ...itemOneProps } = itemOne;
+    const { id, ...itemNumberProps } = itemNumber;
 
     return (
       <li key={id} className="numbers-list-item">
-        <Item1 {...itemOneProps}/>
+        <ItemNumber {...itemNumberProps}/>
       </li>
     )
   });
@@ -31,9 +31,9 @@ const NumbersList = ({ itemsOne }) => {
 
 const mapStateToProps = (state) => {
   return {
-    itemsOne: state
+    itemsNumbers: state
   };
 };
 
-export default connect(mapStateToProps, addNum)(NumbersList);
+export default connect(mapStateToProps, addToNumbers)(NumbersList);
 

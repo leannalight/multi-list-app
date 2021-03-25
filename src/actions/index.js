@@ -1,23 +1,29 @@
 // создаём Action Creators
 
 let itemId = 0;
+//let countWord = 0;
 
- export const addLet = (text) => ({
-    type: 'ADD_LET',
+ export const addToLetters = (text, count) => {
+    return {
+    type: 'ADD_TO_LETTERS',
     id: itemId++,
-    text
-  });
+    text,
+    payload: count
+    }
+  };
 
- export const addNum = (text1) => ({
-  type: 'ADD_NUM',
-  id: itemId++,
-  text1
-});
+ export const addToNumbers = (number) => {
+  return {
+    type: 'ADD_TO_NUMBERS',
+    id: itemId++,
+    number
+  };
+};
 
-export const addLetNum = (text2) => ({
-  type: 'ADD_LN',
-  id: itemId++,
-  text2
-});
-
-export const inc = () => ({type: 'INC'});
+export const addToLetNumbers = (letNumber) => {
+  return {
+    type: 'ADD_TO_LETTERS_AND_NUMBERS',
+    id: itemId++,
+    letNumber
+  }
+};

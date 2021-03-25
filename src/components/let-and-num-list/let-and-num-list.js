@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLetNum } from '../../actions';
-import { Item2 } from '../item';
+import { addToLetNumbers } from '../../actions';
+import { ItemLetNumber } from '../item';
 
 import './let-and-num-list.css';
 
 
-const LetAndNumList = ({ itemsTwo }) => {
+const LetAndNumList = ({ itemsLetNumbers }) => {
 
-  const elements = itemsTwo.itemsTwo.map((itemTwo) => {
+  const elements = itemsLetNumbers.itemsLetNumbers.map((itemLetNumber) => {
 
-    const { id, ...itemTwoProps } = itemTwo;
+    const { id, ...itemLetNumberProps } = itemLetNumber;
 
     return (
       <li key={id} className="let-num-list-item">
-        <Item2 {...itemTwoProps}/>
+        <ItemLetNumber {...itemLetNumberProps}/>
       </li>
     )
   });
@@ -31,9 +31,9 @@ const LetAndNumList = ({ itemsTwo }) => {
 
 const mapStateToProps = (state) => {
   return {
-    itemsTwo: state
+    itemsLetNumbers : state
   };
 };
 
-export default connect(mapStateToProps, addLetNum)(LetAndNumList);
+export default connect(mapStateToProps, addToLetNumbers)(LetAndNumList);
 

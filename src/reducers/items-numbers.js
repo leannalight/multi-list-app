@@ -1,12 +1,12 @@
-const itemsOne = (state = [], action) => {
+const itemsNumbers = (state = [], action) => {
 
   switch (action.type) {
-      case 'ADD_NUM':
+      case 'ADD_TO_NUMBERS':
       return [
         ...state,
         {
           id: action.id,
-          text1: action.text1
+          number: action.number
         }
       ];
       default:
@@ -14,4 +14,4 @@ const itemsOne = (state = [], action) => {
   }
 }
 
-export default itemsOne;
+export default itemsNumbers;

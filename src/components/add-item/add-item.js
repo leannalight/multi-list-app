@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLet, addNum, addLetNum } from '../../actions';
+import { addToLetters, addToNumbers, addToLetNumbers } from '../../actions';
 
 import './add-item.css';
 
 const AddItem = ({ dispatch }) => {
 
   let input
-
 // функция с логикой для ввода данных
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
 
     e.preventDefault();
 
@@ -18,13 +17,15 @@ const AddItem = ({ dispatch }) => {
     }
 
     if (/(([a-zа-яё]+\d+)|(\d+[a-zа-яё]+))/.test(input.value)) {
-      dispatch (addLetNum(input.value));
+      dispatch (addToLetNumbers(input.value));
     }
+
     if (/^[a-zа-яё]*$/.test(input.value)) {
-        dispatch (addLet(input.value));
-    }
+      dispatch (addToLetters(input.value));
+  }
+
     if (/^\d+$/.test(input.value)) {
-        dispatch (addNum(input.value));
+        dispatch (addToNumbers(input.value));
     }
 
     input.value = ''
@@ -33,7 +34,7 @@ const AddItem = ({ dispatch }) => {
 
   return (
     <div className="add-item">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
 
         <input placeholder="type text"
                 ref={node => input = node} />

@@ -1,37 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLet } from '../../actions';
+import { addToLetters } from '../../actions';
 import { Item } from '../item';
 
 import './letters-list.css';
 
 const LettersList = ({ items }) => {
-
-  const elements = items.items.map((item) => {
-
-    const { id, ...itemProps } = item;
-
     return (
-      <li key={id} className="letters-list-item">
-        <Item {...itemProps} />
-      </li>
-    )
-  });
-
-  return (
-    <div className="letters-list">
+      <div className="letters-list">
        <h5>Letters</h5>
+
        <ul className="letters-list-item list-group">
-        {elements}
+        {
+          items.items.map((item) => {
+            return (
+              <li key={item.id} className="letters-list-item">
+                <Item item={item} />
+              </li>
+            );
+          })
+        }
        </ul>
     </div>
-   );
-}
+    );
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ items }) => {
   return {
-    items: state
+    items
   };
 };
 
-export default connect(mapStateToProps, addLet)(LettersList);
+export default connect(mapStateToProps, addToLetters)(LettersList);

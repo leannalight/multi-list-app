@@ -1,7 +1,7 @@
-import { Item, Item1, Item2 } from './item';
+import { Item, ItemNumber, ItemLetNumber } from './item';
 
 export {
   Item,
-  Item1,
-  Item2
+  ItemNumber,
+  ItemLetNumber
 };
